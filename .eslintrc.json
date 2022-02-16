@@ -31,5 +31,7 @@
                 "no-undef": "off"
             }
         }
-    ]
+    ],
+    "ignorePatterns": ["**/*.css"]
+
 }

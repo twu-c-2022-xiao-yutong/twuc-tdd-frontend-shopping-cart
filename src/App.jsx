@@ -1,15 +1,16 @@
 import React from 'react';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Main from './components/Main';
 
 class App extends React.Component {
-    constructor() {
-        super();
-    }
-
     render() {
         return (
-            <div>
-                <h1>Hello React</h1>
-            </div>
+            <>
+                <Header />
+                <Main />
+                <Footer />
+            </>
         );
     }
 }
