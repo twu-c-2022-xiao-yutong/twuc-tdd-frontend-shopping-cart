@@ -3,9 +3,11 @@ import './header.css';
 
 class Header extends React.Component {
     render() {
-        return <header>
-            <h1 className= "header">Shopping Cart</h1>
-        </header>;
+        return (
+            <header>
+                <h1 className="header">Thoughtworks Mall</h1>
+            </header>
+        );
     }
 }
 

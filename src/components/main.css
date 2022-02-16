@@ -1,4 +1,8 @@
-main {
-    margin: 10px auto;
-    text-align: center;
+.main {
+    background-color: #EEF1F3;
+    width: 100%;
+    height: calc(100% - 120px);
+    padding: 24px 0;
+    display: flex;
+    justify-content: center;
 }

@@ -1,13 +1,14 @@
 import React from 'react';
 import './main.css';
-import Table from './Table';
 
 class Main extends React.Component {
 
     render() {
-        return <main>
-            <Table />
-        </main>;
+        return (
+            <main className="main">
+                {this.props.children}
+            </main>
+        );
     }
 }
 

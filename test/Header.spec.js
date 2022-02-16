@@ -5,5 +5,5 @@ import Header from '../src/components/Header';
 
 test('Header', () => {
     const {getByText} = render(<Header />);
-    expect(getByText('Shopping Cart')).toBeInTheDocument();
+    expect(getByText('Thoughtworks Mall')).toBeInTheDocument();
 });

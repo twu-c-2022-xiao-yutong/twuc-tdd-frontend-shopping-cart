@@ -4,7 +4,8 @@
 ```
 start frontend:
 $ npm install 
-$ npm run start
+$ npm start
+
 start backend:
 $ npm run start_server
 ```

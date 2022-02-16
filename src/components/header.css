@@ -1,5 +1,8 @@
-header {
-    color: purple;
+.header {
+    background-color: #60507A;
+    color: #FFFFFF;
     text-align: center;
-    height: 50px;
+    height: 80px;
+    line-height: 80px;
+    margin: 0;
 }

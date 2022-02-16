@@ -4,10 +4,12 @@ import './footer.css';
 class Footer extends React.Component {
 
     render() {
-        return <footer>
-            <a href="/contact">contact us</a>
-            <a href="/about">about us</a>
-        </footer>;
+        return (
+            <footer className="footer">
+                <a className="link" href="/contact">Contact Us</a>
+                <a className="link" href="/about">About Us</a>
+            </footer>
+        );
     }
 
 }

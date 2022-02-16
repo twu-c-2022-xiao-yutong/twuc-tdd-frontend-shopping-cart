@@ -5,5 +5,6 @@ import Footer from '../src/components/Footer';
 
 test('Footer', () => {
     const {getByText} = render(<Footer />);
-    expect(getByText('about us')).toBeInTheDocument();
+    expect(getByText('Contact Us')).toBeInTheDocument();
+    expect(getByText('About Us')).toBeInTheDocument();
 });
