@@ -1,6 +1,13 @@
 # shopping-cart
 
-
+### Start the repo
+```
+start frontend:
+$ npm install 
+$ npm run start
+start backend:
+$ npm run start_server
+```
 ### Requirements
 
 As a 用户
