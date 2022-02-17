@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start-server": "mock-json-server data.json",
+    "start-server": "mock-json-server __mocks__/data.json",
     "start": "webpack serve  --hot --open",
     "build": "webpack --config webpack.config.js",
     "test": "jest",

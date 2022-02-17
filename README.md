@@ -7,7 +7,7 @@ $ npm install
 $ npm start
 
 start backend:
-$ npm run start_server
+$ npm run start-server
 ```
 ### Requirements
 
