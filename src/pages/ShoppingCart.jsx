@@ -9,14 +9,17 @@ class ShoppingCart extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            products: []
+            products: [],
+            total: 0,
         };
     }
 
     componentDidMount() {
         axios.get(BASE_URL).then(({ data }) => {
-            console.log(1);
-            this.setState({ products: data.data });
+            if (data) {
+                const { products, total } = data;
+                this.setState({ products, total });
+            }
         });
     }
 
@@ -40,7 +43,7 @@ class ShoppingCart extends React.Component {
                                         {product.name}
                                     </td>
                                     <td className="table-cell align-right">
-                                        {product.price}
+                                        {product.price.toFixed(2)}
                                     </td>
                                     <td className="table-cell align-right">
                                         {product.count}
@@ -50,6 +53,7 @@ class ShoppingCart extends React.Component {
                         )}
                     </tbody>
                 </table>
+                <div className="total">合计：{this.state.total.toFixed(2)}</div>
             </div>
         );
     }

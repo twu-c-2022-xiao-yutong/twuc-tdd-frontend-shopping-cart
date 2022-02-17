@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
 import ShoppingCart from '../src/pages/ShoppingCart';
@@ -9,9 +9,12 @@ jest.mock('axios');
 describe('Shopping Cart', () => {
     beforeEach(() => {
         axios.get.mockResolvedValue({
-            data: [
-                { id: 1, name: 'Apple', price: '5', count: 1 }
-            ]
+            data: {
+                products: [
+                    { id: 1, name: 'Apple', price: 5.00, count: 1 }
+                ],
+                total: 5.00
+            }
         });
     });
 
@@ -19,16 +22,15 @@ describe('Shopping Cart', () => {
         axios.get.mockReset();
     });
 
-    test.skip('should show shopping cart page', () => {
-        const { getByText } = render(<ShoppingCart />);
-        expect(getByText('Shopping Cart')).toBeInTheDocument();
-    });
+    test('should show shopping cart page', async () => {
+        const { container } = render(<ShoppingCart />);
 
-    test.skip('should show product list', async () => {
-        render(<ShoppingCart />);
+        expect(axios.get).toBeCalled();
+
         await waitFor(() => {
-            expect(axios.get).toHaveBeenCalledTimes(1);
-            expect(screen.getByText('Apple')).toBeInTheDocument();
+            expect(container).toHaveTextContent(
+                'Shopping Cart商品名称单 价数 量Apple5.001合计：5.00'
+            );
         });
     });
 });
