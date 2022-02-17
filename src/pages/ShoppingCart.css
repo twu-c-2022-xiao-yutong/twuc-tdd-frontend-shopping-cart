@@ -36,3 +36,9 @@
 .align-right {
   text-align: right;
 }
+
+.total {
+  margin-top: 24px;
+  font-weight: bold;
+  color: #C18830;
+}
