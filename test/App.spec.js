@@ -5,5 +5,5 @@ import App from '../src/App';
 
 test('App', () => {
     const { getByText } = render(<App />);
-    expect(getByText('Shopping Cart')).toBeInTheDocument();
+    expect(getByText('Thoughtworks Mall')).toBeInTheDocument();
 });
