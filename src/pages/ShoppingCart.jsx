@@ -1,7 +1,24 @@
 import React from 'react';
 import './ShoppingCart.css';
+import axios from 'axios';
+import { BASE_URL } from '../constants';
+
 
 class ShoppingCart extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            products: []
+        };
+    }
+
+    componentDidMount() {
+        axios.get(BASE_URL).then(({ data }) => {
+            console.log(1);
+            this.setState({ products: data.data });
+        });
+    }
 
     render() {
         return (
@@ -16,11 +33,21 @@ class ShoppingCart extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr className="table-row">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        {this.state.products && this.state.products.map(
+                            (product) => (
+                                <tr className="table-row" key={product.id}>
+                                    <td className="table-cell align-left">
+                                        {product.name}
+                                    </td>
+                                    <td className="table-cell align-right">
+                                        {product.price}
+                                    </td>
+                                    <td className="table-cell align-right">
+                                        {product.count}
+                                    </td>
+                                </tr>
+                            )
+                        )}
                     </tbody>
                 </table>
             </div>
