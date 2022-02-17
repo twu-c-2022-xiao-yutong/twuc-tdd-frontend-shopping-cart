@@ -8,7 +8,7 @@ class Button extends React.Component {
                 className={`button ${this.props.disabled ? 'disabled' : ''}`}
                 disabled={this.props.disabled}
             >
-                {this.props.text}
+                {this.props.children}
             </button>
         );
     }
