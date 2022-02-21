@@ -4,10 +4,10 @@ import { BASE_URL, ORDER_STATUS } from '../../constants';
 export const getProducts = async () => {
     try {
         const { data } = await apiHelper.get(BASE_URL);
-        if (data) {
-            return data.products || [];
+        if (data && data.products) {
+            return data.products;
         }
-        return [];
+        throw new Error();
     } catch (e) {
         return [];
     }
