@@ -13,30 +13,6 @@
   padding-bottom: 24px;
 }
 
-.table {
-  width: 100%;
-}
-
-.table-row {
-  height: 50px;
-}
-
-.table-header {
-  color: #777777;
-}
-
-.table-cell {
-  border-bottom: 2px dotted #EEF1F3;
-}
-
-.align-left {
-  text-align: left;
-}
-
-.align-right {
-  text-align: right;
-}
-
 .total {
   margin-top: 24px;
   font-weight: bold;
