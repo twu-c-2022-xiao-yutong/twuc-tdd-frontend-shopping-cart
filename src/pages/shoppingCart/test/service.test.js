@@ -1,4 +1,4 @@
-import { calculateTotalPrice, getProducts } from '../service';
+import { calculateTotalPrice, getProducts, pay } from '../service';
 import apiHelper from '../../../utils/apiHelper';
 import { BASE_URL } from '../../../constants';
 
@@ -57,3 +57,34 @@ describe('calculateTotalPrice', () => {
     });
 });
 
+describe('pay', () => {
+    test('should get order ID and status', async () => {
+        apiHelper.post.mockResolvedValueOnce({ data: { orderId: '1234', status: 'PAID' }});
+
+        const { orderId, status } = await pay();
+
+        expect(orderId).toBe('1234');
+        expect(status).toBe('PAID');
+        expect(apiHelper.post).toBeCalledWith(BASE_URL, {});
+    });
+
+    test('should handle error when got response without data field', async () => {
+        apiHelper.post.mockResolvedValueOnce({});
+
+        const { orderId, status } = await pay();
+
+        expect(orderId).toBeUndefined();
+        expect(status).toBe('CREATE_ORDER_FAILED');
+        expect(apiHelper.post).toBeCalledWith(BASE_URL, {});
+    });
+
+    test('should handle error when pay failed', async () => {
+        apiHelper.post.mockRejectedValueOnce(new Error());
+
+        const { orderId, status } = await pay();
+
+        expect(orderId).toBeUndefined();
+        expect(status).toBe('CREATE_ORDER_FAILED');
+        expect(apiHelper.post).toBeCalledWith(BASE_URL, {});
+    });
+});

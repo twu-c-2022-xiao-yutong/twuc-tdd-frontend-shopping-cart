@@ -4,11 +4,20 @@ import { BASE_URL } from '../../constants';
 
 jest.mock('axios');
 
-test('apiHelper', async () => {
+test('get', async () => {
     axios.get.mockResolvedValueOnce('success');
 
-    const result = await apiHelper.get(BASE_URL);
+    const response = await apiHelper.get(BASE_URL);
 
-    expect(result).toBe('success');
+    expect(response).toBe('success');
     expect(axios.get).toBeCalledWith(BASE_URL);
+});
+
+test('post', async () => {
+    axios.post.mockResolvedValueOnce('success');
+
+    const response = await apiHelper.post(BASE_URL, {});
+
+    expect(response).toBe('success');
+    expect(axios.post).toBeCalledWith(BASE_URL, {});
 });

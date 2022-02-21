@@ -14,7 +14,13 @@
 }
 
 .total {
-  margin-top: 24px;
   font-weight: bold;
   color: #C18830;
+}
+
+.operation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
 }
