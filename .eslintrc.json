@@ -27,7 +27,7 @@
     },
     "overrides": [
         {
-            "files": ["./test/*"],
+            "files": ["*/**/*.test.js"],
             "rules": {
                 "no-undef": "off"
             }

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
-import Button from '../src/components/Button';
+import Button from '../index';
 
 describe('Button', () => {
     test('should have text', () => {

@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
-import Header from '../src/components/Header';
+import App from './App';
 
-test('Header', () => {
-    const {getByText} = render(<Header />);
+test('App', () => {
+    const { getByText } = render(<App />);
     expect(getByText('Thoughtworks Mall')).toBeInTheDocument();
 });

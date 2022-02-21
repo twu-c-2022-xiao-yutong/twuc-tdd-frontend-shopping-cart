@@ -1,7 +1,7 @@
 import { render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
-import ShoppingCart from '../src/pages/ShoppingCart';
+import ShoppingCart from '../index';
 import axios from 'axios';
 
 jest.mock('axios');

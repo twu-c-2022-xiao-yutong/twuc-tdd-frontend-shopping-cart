@@ -8,8 +8,8 @@
     "start": "webpack serve  --hot --open",
     "build": "webpack --config webpack.config.js",
     "test": "jest",
-    "lint:check": "eslint src test --ext .js,.jsx",
-    "lint:fix": "eslint src test --fix --ext .js,.jsx",
+    "lint:check": "eslint src --ext .js,.jsx",
+    "lint:fix": "eslint src --fix --ext .js,.jsx",
     "prepare": "husky install"
   },
   "engines": {

@@ -1,7 +1,7 @@
 import React from 'react';
-import './ShoppingCart.css';
+import './index.css';
 import axios from 'axios';
-import { BASE_URL } from '../constants';
+import { BASE_URL } from '../../constants';
 
 
 class ShoppingCart extends React.Component {
