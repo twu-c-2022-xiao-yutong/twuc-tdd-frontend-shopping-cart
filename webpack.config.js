@@ -17,6 +17,10 @@ module.exports = {
         modules: [__dirname, 'src', 'node_modules'],
         extensions: ['*', '.js', '.jsx', '.tsx', '.ts'],
     },
+    watch: true,
+    watchOptions: {
+        ignored: /node_modules/,
+    },
     module: {
         rules: [
             {
