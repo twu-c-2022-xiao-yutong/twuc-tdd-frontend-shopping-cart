@@ -17,7 +17,10 @@ class ShoppingCart extends React.Component {
     componentDidMount() {
         axios.get(BASE_URL).then(({ data }) => {
             if (data) {
-                const { products, total } = data;
+                const { products } = data;
+                const total = products.reduce(
+                    (acc, cur) => acc += cur.price * cur.count, 0
+                );
                 this.setState({ products, total });
             }
         });
