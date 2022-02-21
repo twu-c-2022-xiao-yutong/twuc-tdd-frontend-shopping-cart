@@ -2,42 +2,31 @@ import { render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
 import ShoppingCart from '../index';
-import axios from 'axios';
+import { getProducts, calculateTotalPrice } from '../service';
 
-jest.mock('axios');
+jest.mock('../service');
 
 describe('Shopping Cart', () => {
     beforeEach(() => {
-        axios.get.mockResolvedValue({
-            data: {
-                products: [
-                    { id: 1, name: 'Apple', price: 5.00, count: 1 },
-                    { id: 2, name: 'Banana', price: 6.00, count: 2 },
-                    { id: 3, name: 'Peach', price: 4.00, count: 4 },
-                ]
-            }
-        });
+        getProducts.mockResolvedValue(
+            [
+                { id: 1, name: 'Apple', price: 5.00, count: 1 },
+                { id: 2, name: 'Banana', price: 6.00, count: 2 },
+                { id: 3, name: 'Peach', price: 4.00, count: 4 },
+            ]
+        );
+        calculateTotalPrice.mockReturnValue(33.00);
     });
 
     afterEach(() => {
-        axios.get.mockReset();
+        getProducts.mockReset();
+        calculateTotalPrice.mockReset();
     });
 
     test('should show shopping cart page', () => {
         const { getByText } = render(<ShoppingCart/>);
 
         expect(getByText('Shopping Cart')).toBeInTheDocument();
-    });
-
-    test('should show table header of product list', () => {
-        const { container } = render(<ShoppingCart/>);
-
-        const thElements = container.getElementsByTagName('th');
-
-        expect(thElements.length).toBe(3);
-        ['商品名称', '单 价', '数 量'].forEach((text, index) => {
-            expect(thElements.item(index)).toHaveTextContent(text);
-        });
     });
 
     test('should show product list', async () => {

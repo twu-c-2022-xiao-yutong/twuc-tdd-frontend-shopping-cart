@@ -1,7 +1,6 @@
 import React from 'react';
 import './index.css';
-import axios from 'axios';
-import { BASE_URL } from '../../constants';
+import { calculateTotalPrice, getProducts } from './service';
 
 
 class ShoppingCart extends React.Component {
@@ -15,14 +14,9 @@ class ShoppingCart extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(BASE_URL).then(({ data }) => {
-            if (data) {
-                const { products } = data;
-                const total = products.reduce(
-                    (acc, cur) => acc += cur.price * cur.count, 0
-                );
-                this.setState({ products, total });
-            }
+        getProducts().then((products) => {
+            const total = calculateTotalPrice(products);
+            this.setState({ products, total });
         });
     }
 
