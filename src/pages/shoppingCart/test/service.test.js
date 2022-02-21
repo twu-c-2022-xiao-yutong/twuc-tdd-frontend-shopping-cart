@@ -9,7 +9,7 @@ describe('getProducts', () => {
         const products = [{ id: 1, name: 'Apple', price: 5.00, count: 1 }];
         apiHelper.get.mockResolvedValueOnce({ data: { products } });
 
-        const result = await getProducts(BASE_URL);
+        const result = await getProducts();
 
         expect(result).toBe(products);
         expect(apiHelper.get).toBeCalledWith(BASE_URL);
@@ -18,7 +18,7 @@ describe('getProducts', () => {
     it('should get empty array when got error in response', async () => {
         apiHelper.get.mockRejectedValueOnce(new Error('failed'));
 
-        const result = await getProducts(BASE_URL);
+        const result = await getProducts();
 
         expect(result).toEqual([]);
         expect(apiHelper.get).toBeCalledWith(BASE_URL);
@@ -27,7 +27,7 @@ describe('getProducts', () => {
     it('should get empty array when response without data field', async () => {
         apiHelper.get.mockResolvedValueOnce({});
 
-        const result = await getProducts(BASE_URL);
+        const result = await getProducts();
 
         expect(result).toEqual([]);
         expect(apiHelper.get).toBeCalledWith(BASE_URL);
@@ -36,7 +36,7 @@ describe('getProducts', () => {
     it('should get empty array when response without products field', async () => {
         apiHelper.get.mockResolvedValueOnce({ data: {} });
 
-        const result = await getProducts(BASE_URL);
+        const result = await getProducts();
 
         expect(result).toEqual([]);
         expect(apiHelper.get).toBeCalledWith(BASE_URL);

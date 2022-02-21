@@ -1,8 +1,9 @@
 import apiHelper from '../../utils/apiHelper';
+import { BASE_URL } from '../../constants';
 
-export const getProducts = async (url) => {
+export const getProducts = async () => {
     try {
-        const { data } = await apiHelper.get(url);
+        const { data } = await apiHelper.get(BASE_URL);
         if (data) {
             return data.products || [];
         }
