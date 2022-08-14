@@ -8,7 +8,9 @@ import { getProducts } from "../../store/store";
 jest.mock("../../store/store");
 
 describe("Shopping Cart", () => {
-  beforeEach(() => {});
+  beforeEach(() => {
+    getProducts.mockResolvedValue(products);
+  });
 
   afterEach(() => {
     getProducts.mockReset();
@@ -32,14 +34,13 @@ describe("Shopping Cart", () => {
   });
 
   test("should show product lists on page, given products data", async () => {
-    getProducts.mockResolvedValueOnce(products);
     const { container } = render(<ShoppingCart />);
 
     const actual = container.getElementsByClassName("product");
 
     await waitFor(() => {
       expect(actual).toHaveLength(products.length);
-      Array.from(acutal).forEach((productElement, index) => {
+      Array.from(actual).forEach((productElement, index) => {
         const product = products[index];
 
         expect(productElement).toHaveTextContent(product.name);
