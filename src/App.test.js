@@ -1,11 +1,11 @@
-import { render } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import React from 'react';
-import App from './App';
+import { render } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import React from "react";
+import App from "./App";
 
-jest.mock('axios');
+jest.mock("axios");
 
-test('App', () => {
+test("App", () => {
   const { getByText } = render(<App />);
-  expect(getByText('Thoughtworks Mall')).toBeInTheDocument();
+  expect(getByText("Thoughtworks Mall")).toBeInTheDocument();
 });

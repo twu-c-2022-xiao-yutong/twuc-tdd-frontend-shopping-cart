@@ -1,15 +1,15 @@
 .wrapper {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   width: 800px;
   border-radius: 10px;
   padding: 24px;
 }
 
 .title {
-  color: #163C4D;
+  color: #163c4d;
   font-weight: bold;
   font-size: 24px;
-  border-bottom: 2px solid #EEF1F3;
+  border-bottom: 2px solid #eef1f3;
   padding-bottom: 24px;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .table-cell {
-  border-bottom: 2px dotted #EEF1F3;
+  border-bottom: 2px dotted #eef1f3;
 }
 
 .align-left {
@@ -39,7 +39,7 @@
 
 .total {
   font-weight: bold;
-  color: #C18830;
+  color: #c18830;
 }
 
 .operation {
