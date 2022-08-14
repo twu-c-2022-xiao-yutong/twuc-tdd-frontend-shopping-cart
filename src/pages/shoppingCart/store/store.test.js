@@ -1,4 +1,4 @@
-import { getData } from "../../service/service";
+import { getData } from "../../../service/service";
 import { getProducts } from "./store";
 import products from "../mockData/products";
 
