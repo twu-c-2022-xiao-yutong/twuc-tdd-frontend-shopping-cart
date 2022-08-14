@@ -1,1 +1,1 @@
-export const GET_DATA = 'http://localhost:8000/';
+export const GET_DATA = "http://localhost:8000/";

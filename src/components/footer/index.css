@@ -1,11 +1,11 @@
 .footer {
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
 }
 
 .link {
-    text-decoration: none;
-    color: gray;
-    margin-right: 10px;
+  text-decoration: none;
+  color: gray;
+  margin-right: 10px;
 }
